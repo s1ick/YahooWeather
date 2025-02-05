@@ -1,0 +1,22 @@
+<div class="today">
+    <div class="today__content today-content today-day">
+       {{WeatherService.response?.current_observation?.pubDate * 1000 | date : 'EEEE, MMM y' }}
+    </div>
+    <div class="today__content today-content temperature">
+      <b>Temperature:</b>     {{(WeatherService.response?.current_observation.condition.temperature - 32)/1.8 | number: '1.0-0'}} &#8451;
+        / {{WeatherService.response?.current_observation.condition.temperature}}&#8457;
+
+     </div>
+     <div class="today__content today-content time">
+      <b>Time:</b>    {{WeatherService.response?.current_observation?.pubDate * 1000 | date : 'HH: mm'}}
+     </div>
+     <div class="today__content today-content humidility">
+      <b>Humidity:</b>   {{WeatherService.response?.current_observation.atmosphere.humidity}}%
+     </div>
+     <div class="today__content today-content city">
+      <b>City:</b>   {{WeatherService.response?.location?.city}}
+     </div>
+</div>
+<div class="today__img today-img">
+   <img src="{{WeatherService.imgPath}}256/{{WeatherService.response?.current_observation?.condition?.code}}.png" alt="">
+</div>

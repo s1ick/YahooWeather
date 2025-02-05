@@ -1,0 +1,39 @@
+:host {
+    display: flex;
+}
+.today {
+    padding: 48px;
+    width: 50%;
+}
+.today-content {
+
+    &.today-day {
+        font-size: 24px;;
+        margin-bottom: 24px;
+        white-space: nowrap;
+    }
+    &.temperature {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    &.humidility{
+        font-size: 16px;
+    }
+    &.time {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+    &.city {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+}
+.today-img {
+    flex: 1;	
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}

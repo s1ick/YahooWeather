@@ -1,0 +1,18 @@
+<div class="week-list">
+    <div
+      class="week-list-item"
+      *ngFor="let day of WeatherService?.response?.forecasts.slice(1, 7)"
+    >
+      <div class="week-list-item-content">
+        <div class="week-list-item-content__day">{{ day.day }}</div>
+  
+        <div class="week-list-item-content__temp">
+          {{ ((day.high + day.low) / 2 - 32) / 1.8 | number: "1.0-0" }}&#8451;
+        </div>
+      </div>
+      <div class="week-list-item__img">
+        <img src="{{ WeatherService.imgPath}}128/{{ day.code }}.png" width="128px" height="128px" alt="" />
+      </div>
+    </div>
+  </div>
+  
