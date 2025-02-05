@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  background-color: #7e929b;
+}
+
+body {
+  margin: 0;
+  color: #fff;
+  font-size: 16px !important;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+app-root {
+    display: flex;
+}

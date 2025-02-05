@@ -1,0 +1,17 @@
+.layout {
+    width: 600px;
+    margin: 50px auto;
+    background-color: #315760;
+    padding-bottom: 12px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+0 0 0 1px rgb(194, 192, 184) inset,
+0 5px 0 -4px rgb(255, 255, 255),
+0 5px 0 -3px rgb(194, 192, 184),
+0 11px 0 -8px rgb(255, 255, 255),
+0 11px 0 -7px rgb(194, 192, 184),
+0 17px 0 -12px rgb(255, 255, 255),
+0 17px 0 -11px rgb(194, 192, 184);
+}
