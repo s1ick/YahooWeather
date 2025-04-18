@@ -1,17 +1,51 @@
-html,
-body {
-  height: 100%;
-  background-color: #7e929b;
+/* Глобальные стили и переменные */
+:root {
+  --primary-bg-light: linear-gradient(135deg, #6dd5ed, #2193b0);
+  --primary-bg-dark: linear-gradient(135deg, #2c3e50, #4ca1af);
+  --text-color-light: #ffffff;
+  --text-color-dark: #f0f0f0;
+  --body-bg-light: #7e929b;
+  --body-bg-dark: #1a2a3a;
 }
 
+/* Базовые стили для body */
 body {
   margin: 0;
-  color: #fff;
-  font-size: 16px !important;
-  font-weight: 400;
-  line-height: 1.4;
+  font-family: Arial, sans-serif;
+  color: var(--text-color-light);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--body-bg-light);
+  background: var(--primary-bg-light);
+  transition: background 0.3s ease, color 0.3s ease;
+
+  /* Темная тема */
+  &.dark-theme {
+    color: var(--text-color-dark);
+    background-color: var(--body-bg-dark);
+    background: var(--primary-bg-dark);
+  }
 }
 
+/* Дополнительные глобальные стили */
+* {
+  box-sizing: border-box;
+}
+
+/* Для корневого элемента приложения */
 app-root {
-    display: flex;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+    padding-top: 20px;
+    background-attachment: fixed;
+  }
 }

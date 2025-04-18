@@ -1,17 +1,43 @@
+:root {
+  --shadow-color: rgb(194, 192, 184);
+  --white-color: white;
+  --primary-bg: #315760;
+  --text-color: white;
+}
+
+
 .layout {
-    width: 600px;
-    margin: 50px auto;
-    background-color: #315760;
-    padding-bottom: 12px;
-    padding: 4px;
-    display: flex;
-    flex-direction: column;
-    box-shadow:
-0 0 0 1px rgb(194, 192, 184) inset,
-0 5px 0 -4px rgb(255, 255, 255),
-0 5px 0 -3px rgb(194, 192, 184),
-0 11px 0 -8px rgb(255, 255, 255),
-0 11px 0 -7px rgb(194, 192, 184),
-0 17px 0 -12px rgb(255, 255, 255),
-0 17px 0 -11px rgb(194, 192, 184);
+  width: 600px;
+  margin: 50px auto;
+  background-color: var(--primary-bg);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+
+  box-shadow:
+    inset 0 0 0 1px var(--shadow-color),
+    0 5px 0 -4px var(--white-color),
+    0 5px 0 -3px var(--shadow-color),
+    0 11px 0 -8px var(--white-color),
+    0 11px 0 -7px var(--shadow-color),
+    0 17px 0 -12px var(--white-color),
+    0 17px 0 -11px var(--shadow-color);
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #4a8d99;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+
+  &:hover {
+    background-color: #5ca4b3;
+  }
 }

@@ -1,26 +1,37 @@
-import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { fromEvent } from 'rxjs';
-import { WeatherService } from './../weather.service';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { Component, Input, OnInit } from '@angular/core';
+import { WeatherService } from '../weather.service';
 import { CommonModule } from '@angular/common';
+import { WeatherResponse } from '../weather.interface';
+
 @Component({
   selector: 'app-today',
+  standalone: true,
   templateUrl: './today.component.html',
-  imports: [CommonModule],
-  styleUrls: ['./today.component.scss']
+  styleUrls: ['./today.component.scss'],
+  imports: [CommonModule]
 })
-export class TodayComponent implements OnInit, AfterViewInit {
-  @ViewChild('button') button!: ElementRef;
-  constructor(public WeatherService: WeatherService , private http: HttpClient, ) { 
-  }
-  public response:any;
+export class TodayComponent implements OnInit {
+  @Input() isDarkTheme = false;
+  weatherData: WeatherResponse | null = null;
+
+  constructor(private weatherService: WeatherService) {}
+
   ngOnInit(): void {
-
+    this.loadWeatherData();
   }
 
-  ngAfterViewInit(): void { 
-      this.WeatherService.weather();
-      //WheatherService.response.current_observation.pubDate
+  private loadWeatherData(): void {
+    this.weatherService.getWeather().subscribe({
+      next: (data: WeatherResponse) => this.weatherData = data,
+      error: (err) => console.error('Error loading weather data:', err)
+    });
+  }
+
+  convertToCelsius(temp: number): number {
+    return Math.round((temp - 32) * 5 / 9);
+  }
+
+  getWeatherImageUrl(code: string): string {
+    return this.weatherService.getWeatherImageUrl(code);
   }
 }

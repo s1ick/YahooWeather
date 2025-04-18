@@ -1,39 +1,95 @@
-:host {
-    display: flex;
-}
-.today {
-    padding: 48px;
-    width: 50%;
-}
-.today-content {
+.today-container {
+  --card-bg: #ffffff;
+  --card-bg-dark: #2d3748;
+  --text-primary: #333333;
+  --text-primary-dark: #f0f0f0;
+  --primary-color: #315760;
+  --border-radius: 0.75rem;
 
-    &.today-day {
-        font-size: 24px;;
-        margin-bottom: 24px;
-        white-space: nowrap;
-    }
-    &.temperature {
-        font-size: 16px;
-        margin-top: 10px;
-    }
-    &.humidility{
-        font-size: 16px;
-    }
-    &.time {
-        font-size: 16px;
-        margin: 10px 0;
-    }
-    &.city {
-        font-size: 16px;
-        margin-top: 10px;
-    }
+  &.dark-theme {
+    --card-bg: var(--card-bg-dark);
+    --text-primary: var(--text-primary-dark);
+  }
 }
-.today-img {
-    flex: 1;	
+
+.today-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.today-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+
+  h2 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+  }
+
+  .today-date {
+    color: var(--text-primary);
+    opacity: 0.8;
+    font-size: 0.9rem;
+  }
+}
+
+.today-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.today-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .weather-icon {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  }
+
+  .temperature {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 0.5rem;
+
+    .temp-fahrenheit {
+      font-size: 1rem;
+      opacity: 0.7;
+    }
+  }
+}
+
+.today-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+
+  .detail-item {
     display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    .detail-label {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      color: var(--text-primary);
+    }
+
+    .detail-value {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+  }
+}
+
+.loading-spinner {
+  /* Аналогично week.component.scss */
 }

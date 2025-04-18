@@ -1,5 +1,7 @@
-<router-outlet />
-<div class="layout">
+<div class="layout" [@themeChange]="isDarkTheme() ? 'dark' : 'light'" [class.dark-theme]="isDarkTheme()">
+  <button (click)="toggleTheme()">
+    {{ isDarkTheme() ? 'Switch to Light Mode' : 'Switch to Dark Mode' }}
+  </button>
   <app-today></app-today>
   <app-week></app-week>
 </div>
